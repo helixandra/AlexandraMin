@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="AllOperationsSuite" verbose="1" >
+    <test name="AllOperationsTests" >
+        <classes>
+            <class name="hw1.AddTests" />
+            <class name="hw1.SubstractTests" />
+            <class name="hw1.MultiplyTests" />
+            <class name="hw1.DivideTests" />
+        </classes>
+    </test>
+
+
+</suite>
