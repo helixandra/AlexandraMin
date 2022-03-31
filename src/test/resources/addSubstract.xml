@@ -1,10 +1,10 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="AddSubstractSuite" verbose="1" >
-    <test name="AddSubstractTests" >
+<suite name="AddSubstractSuite" verbose="1">
+    <test name="AddSubstractTests">
         <classes>
-            <class name="hw1.AddTests" />
-            <class name="hw1.SubstractTests" />
+            <class name="hw1.AddTests"/>
+            <class name="hw1.SubstractTests"/>
         </classes>
     </test>
 </suite>
