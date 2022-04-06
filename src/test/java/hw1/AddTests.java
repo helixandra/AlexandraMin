@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class AddTests extends BazeTestClass {
+public class AddTests extends BaseTestClass {
 
     @DataProvider
     public static Object[][] correctDoubleData() {
