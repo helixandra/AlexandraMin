@@ -3,6 +3,7 @@ package hw2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 
 import java.io.UnsupportedEncodingException;
@@ -21,13 +22,18 @@ public class SeleniumBaseClass {
     }
 
     @BeforeClass
-    public void setupDriver() throws UnsupportedEncodingException {
+    public void setup() throws UnsupportedEncodingException {
         driverPath = changeEncoding(getClass().getClassLoader().getResource("chromedriver.exe").getPath());
         System.setProperty("webdriver.chrome.driver", driverPath);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
         testingUrl = "https://jdi-testing.github.io/jdi-light/index.html";
         softAssert = new SoftAssert();
     }
+
+    @BeforeMethod
+    public void setupDriver(){
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+    }
+
 }
