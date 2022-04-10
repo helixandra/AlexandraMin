@@ -85,6 +85,5 @@ public class SeleniumTestsEx1 extends SeleniumBaseClass {
         softAssert.assertEquals(leftMenuItemsNames, expectedLeftItemsNames);
 
         softAssert.assertAll();
-        driver.close();
     }
 }

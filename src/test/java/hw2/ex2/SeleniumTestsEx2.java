@@ -71,6 +71,5 @@ public class SeleniumTestsEx2 extends SeleniumBaseClass {
         }
 
         softAssert.assertAll();
-        driver.close();
     }
 }
