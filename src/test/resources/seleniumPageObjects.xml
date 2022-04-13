@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="SeleniumPageObjSuite" verbose="1">
+    <test name="SeleniumPageObjectsTests">
+        <classes>
+            <class name="hw3.ex1.SeleniumPageObjEx1"/>
+            <class name="hw3.ex2.SeleniumPageObjEx2"/>
+        </classes>
+    </test>
+</suite>

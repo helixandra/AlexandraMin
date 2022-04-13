@@ -35,10 +35,8 @@ public class SeleniumTestsEx2 extends SeleniumBaseClass {
         softAssert.assertEquals(loggedInUser.getText(), "ROMAN IOVLEV");
 
         //5.    Open Different elements page
-        WebElement serviceItem = driver.findElement(By.cssSelector("li[class = 'dropdown'] a[class='dropdown-toggle']"));
-        serviceItem.click();
-        WebElement differentElemItem = driver.findElement(By.cssSelector("a[href='different-elements.html']"));
-        differentElemItem.click();
+        driver.findElement(By.cssSelector("li[class = 'dropdown'] a[class='dropdown-toggle']")).click();
+        driver.findElement(By.cssSelector("a[href='different-elements.html']")).click();
         softAssert.assertEquals(driver.getCurrentUrl(), "https://jdi-testing.github.io/jdi-light/different-elements.html");
 
         //6.	Select checkboxes	Water, Wind

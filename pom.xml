@@ -92,5 +92,11 @@
                 <testSuite>${project.build.testOutputDirectory}/seleniumBase.xml</testSuite>
             </properties>
         </profile>
+        <profile>
+            <id>SeleniumPageObjects</id>
+            <properties>
+                <testSuite>${project.build.testOutputDirectory}/seleniumPageObjects.xml</testSuite>
+            </properties>
+        </profile>
     </profiles>
 </project>
