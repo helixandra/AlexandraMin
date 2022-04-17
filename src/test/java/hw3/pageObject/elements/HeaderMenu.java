@@ -1,5 +1,6 @@
-package hw3;
+package hw3.pageObject.elements;
 
+import hw3.pageObject.pages.DifferentElementsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-import static hw3.TestPage.getTextsOfElementsList;
-import static hw3.TestPage.isElementsDisplayed;
+import static hw3.pageObject.PageObjectUtility.getTextsOfElementsList;
+import static hw3.pageObject.PageObjectUtility.isElementsDisplayed;
 
 public class HeaderMenu {
     private WebDriver driver;

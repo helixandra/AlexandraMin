@@ -1,6 +1,6 @@
 package hw2.ex2;
 
-import hw2.SeleniumBaseClass;
+import hw2.SeleniumBaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class SeleniumTestsEx2 extends SeleniumBaseClass {
+public class SeleniumTestsEx2 extends SeleniumBaseTest {
 
     @Test
     public void ex2Test() {

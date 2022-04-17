@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class SubstractTests extends BaseTestClass {
+public class SubstractTests extends BaseTest {
 
     @DataProvider
     public static Object[][] correctDoubleData() {

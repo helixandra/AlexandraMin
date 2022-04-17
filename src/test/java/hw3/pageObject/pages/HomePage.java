@@ -1,24 +1,22 @@
-package hw3;
+package hw3.pageObject.pages;
 
+import hw3.pageObject.elements.HeaderMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.*;
-import java.net.URLDecoder;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
-public class TestPage {
+import static hw3.pageObject.PageObjectUtility.getTextsOfElementsList;
+import static hw3.pageObject.PageObjectUtility.isElementsDisplayed;
+
+public class HomePage {
 
     private WebDriver driver;
-    private String testPageUrl;
-    private String testPageTitle;
-    private String userLogin;
-    private String userPassword;
-    private String userFullName;
+    private String homePageUrl = "https://jdi-testing.github.io/jdi-light/index.html";
+    private String homePageTitle = "Home Page";
 
     private HeaderMenu headerMenu;
 
@@ -55,31 +53,9 @@ public class TestPage {
     @FindBy(css = "ul[class='sidebar-menu left'] > li > a > span")
     private List<WebElement> leftMenuItems;
 
-    //change encoding 'cause of Russian letters in the path to driver
-    private static String changeEncoding(String parameter) throws UnsupportedEncodingException {
-        return new String(URLDecoder.decode(parameter, "UTF-8").getBytes("UTF-8"), "UTF-8");
-    }
-
-    public void loadTestInfo() throws UnsupportedEncodingException {
-        Properties properties = new Properties();
-        String propertiesPath = changeEncoding(getClass().getClassLoader().getResource("config.properties").getPath());
-
-        try (FileInputStream fis = new FileInputStream(propertiesPath)) {
-            properties.load(fis);
-            userLogin = properties.getProperty("userInfo.login");
-            userPassword = properties.getProperty("userInfo.password");
-            userFullName = properties.getProperty("userInfo.fullName");
-            testPageUrl = properties.getProperty("testPage.url");
-            testPageTitle = properties.getProperty("testPage.title");
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public TestPage(WebDriver driver) throws UnsupportedEncodingException {
-        loadTestInfo();
+    public HomePage(WebDriver driver) throws UnsupportedEncodingException {
         this.driver = driver;
-        driver.get(testPageUrl);
+        driver.get(homePageUrl);
         PageFactory.initElements(driver, this);
         headerMenu = new HeaderMenu(driver);
     }
@@ -89,10 +65,10 @@ public class TestPage {
     }
 
     public String getUrl() {
-        return testPageUrl;
+        return homePageUrl;
     }
 
-    public void login() {
+    public void login(String userLogin, String userPassword) {
         loginForm.click();
         login.sendKeys(userLogin);
         password.sendKeys(userPassword);
@@ -100,22 +76,15 @@ public class TestPage {
     }
 
     public boolean hasProperTitle() {
-        return driver.getTitle().contains(testPageTitle);
+        return driver.getTitle().contains(homePageTitle);
     }
 
     public boolean isUserLoggined() {
         return logoutButton.isDisplayed();
     }
 
-    public boolean checkLogginedUser() {
+    public boolean checkLogginedUser(String userFullName) {
         return logginedUser.isDisplayed() && logginedUser.getText().contains(userFullName);
-    }
-
-    public static boolean isElementsDisplayed(List<WebElement> elements) {
-        for (WebElement elem : elements) {
-            if (!elem.isDisplayed()) return false;
-        }
-        return true;
     }
 
     public boolean checkLeftMenuItems() {
@@ -128,14 +97,6 @@ public class TestPage {
 
     public boolean checkTextsUnderImages() {
         return isElementsDisplayed(textsUnderImages);
-    }
-
-    public static List<String> getTextsOfElementsList(List<WebElement> elements) {
-        List<String> texts = new ArrayList<>();
-        for (WebElement elem : elements) {
-            texts.add(elem.getText());
-        }
-        return texts;
     }
 
     public List<String> getLeftMenuItemsTexts() {

@@ -1,19 +1,23 @@
 package hw3.ex1;
 
-import hw3.IframePage;
-import hw3.SeleniumPOBaseClass;
-import hw3.TestPage;
+import hw3.pageObject.pages.HomePage;
+import hw3.pageObject.pages.IframePage;
+import hw3.BaseTest;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 
-public class SeleniumPageObjEx1 extends SeleniumPOBaseClass {
+import static hw3.pageObject.PageObjectUtility.isElementDisplayed;
+
+public class SeleniumPageObjEx1 extends BaseTest {
 
     @Test
     public void ex1Test() throws UnsupportedEncodingException {
-        TestPage testPage = new TestPage(driver);
+        SoftAssert softAssert = new SoftAssert();
+        HomePage testPage = new HomePage(driver);
 
         //1.    Open test site by URL
         softAssert.assertEquals(testPage.getUrl(), testingUrl);
@@ -22,11 +26,11 @@ public class SeleniumPageObjEx1 extends SeleniumPOBaseClass {
         softAssert.assertTrue(testPage.hasProperTitle());
 
         //3.	Perform login, assert user is logged
-        testPage.login();
+        testPage.login(user.getLogin(), user.getPassword());
         softAssert.assertTrue(testPage.isUserLoggined());
 
         //4.	Assert username
-        softAssert.assertTrue(testPage.checkLogginedUser());
+        softAssert.assertTrue(testPage.checkLogginedUser(user.getFullName()));
 
         //5.	Assert that there are 4 items on the header
         List<String> expectedItemsNames = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
@@ -48,7 +52,7 @@ public class SeleniumPageObjEx1 extends SeleniumPOBaseClass {
 
         //9.	Assert that the “Frame Button” exists
         IframePage frame = testPage.goToIframe();
-        softAssert.assertTrue(frame.frameButtonExists());
+        softAssert.assertTrue(frame.getFrameButton().isDisplayed());
 
         //10.   Assert that driver has focus on the original window
         frame.goToHomePage();

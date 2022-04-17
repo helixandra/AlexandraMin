@@ -1,4 +1,4 @@
-package hw3;
+package hw3.pageObject.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,8 +17,8 @@ public class IframePage {
         PageFactory.initElements(driver, this);
     }
 
-    public boolean frameButtonExists() {
-        return frameButton.isDisplayed();
+    public WebElement getFrameButton() {
+        return frameButton;
     }
 
     public void goToHomePage() {

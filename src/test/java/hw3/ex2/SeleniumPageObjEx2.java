@@ -1,19 +1,21 @@
 package hw3.ex2;
 
-import hw3.DifferentElementsPage;
-import hw3.SeleniumPOBaseClass;
-import hw3.TestPage;
+import hw3.pageObject.pages.DifferentElementsPage;
+import hw3.BaseTest;
+import hw3.pageObject.pages.HomePage;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 
-public class SeleniumPageObjEx2 extends SeleniumPOBaseClass {
+public class SeleniumPageObjEx2 extends BaseTest {
 
     @Test
     public void ex2Test() throws UnsupportedEncodingException {
-        TestPage testPage = new TestPage(driver);
+        SoftAssert softAssert = new SoftAssert();
+        HomePage testPage = new HomePage(driver);
 
         //1.    Open test site by URL
         softAssert.assertEquals(testPage.getUrl(), testingUrl);
@@ -22,11 +24,11 @@ public class SeleniumPageObjEx2 extends SeleniumPOBaseClass {
         softAssert.assertTrue(testPage.hasProperTitle());
 
         //3.	Perform login, assert user is logged
-        testPage.login();
+        testPage.login(user.getLogin(), user.getPassword());
         softAssert.assertTrue(testPage.isUserLoggined());
 
         //4.	Assert username
-        softAssert.assertTrue(testPage.checkLogginedUser());
+        softAssert.assertTrue(testPage.checkLogginedUser(user.getFullName()));
 
         //5.    Open Different elements page
 
