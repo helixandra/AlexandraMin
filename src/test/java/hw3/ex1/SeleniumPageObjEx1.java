@@ -10,8 +10,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 
-import static hw3.pageObject.PageObjectUtility.isElementDisplayed;
-
 public class SeleniumPageObjEx1 extends BaseTest {
 
     @Test

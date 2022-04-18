@@ -38,9 +38,6 @@ public class HomePage {
     @FindBy(id = "user-name")
     private WebElement logginedUser;
 
-    @FindBy(css = "ul[class='uui-navigation nav navbar-nav m-l8'] > li > a")
-    private List<WebElement> headerMenuItems;
-
     @FindBy(css = "div.benefit-icon")
     private List<WebElement> images;
 

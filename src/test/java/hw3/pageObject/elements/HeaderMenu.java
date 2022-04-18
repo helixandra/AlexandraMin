@@ -14,7 +14,7 @@ import static hw3.pageObject.PageObjectUtility.isElementsDisplayed;
 public class HeaderMenu {
     private WebDriver driver;
 
-    @FindBy(css = "ul[class='uui-navigation nav navbar-nav m-l8'] > li > a")
+    @FindBy(css = "ul[class^='uui-navigation nav '] > li > a")
     private List<WebElement> headerMenuItems;
 
     @FindBy(css = "a[href='different-elements.html']")
