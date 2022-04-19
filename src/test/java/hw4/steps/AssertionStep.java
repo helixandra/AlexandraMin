@@ -68,13 +68,13 @@ public class AssertionStep extends AbstractStep {
         assertTrue(differentElementsPage.checkDifferentElementsUrl());
     }
 
-    @Step("Assert that checkbox '{itemName}' is selected")
+    @Step("Assert that checkbox '{checkboxName}' is selected")
     public void isCheckboxSelected(String checkboxName) {
         assertTrue(differentElementsPage.getSelectableElement(checkboxName, differentElementsPage.getCheckboxRowNames(),
                 differentElementsPage.getCheckboxes()).isSelected());
     }
 
-    @Step("Assert that radio button '{itemName}' is selected")
+    @Step("Assert that radio button '{radioName}' is selected")
     public void isRadioSelected(String radioName) {
         assertTrue(differentElementsPage.getSelectableElement(radioName, differentElementsPage.getRadioRowNames(),
                 differentElementsPage.getRadiobuttons()).isSelected());
