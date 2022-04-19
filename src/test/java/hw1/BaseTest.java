@@ -3,7 +3,7 @@ package hw1;
 import com.epam.tat.module4.Calculator;
 import org.testng.annotations.BeforeClass;
 
-public class BaseTestClass {
+public class BaseTest {
     static final double EPS = 1e-7;
     Calculator calculator;
 

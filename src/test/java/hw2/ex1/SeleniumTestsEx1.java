@@ -1,6 +1,6 @@
 package hw2.ex1;
 
-import hw2.SeleniumBaseClass;
+import hw2.SeleniumBaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SeleniumTestsEx1 extends SeleniumBaseClass {
+public class SeleniumTestsEx1 extends SeleniumBaseTest {
 
     @Test
     public void ex1Test() {

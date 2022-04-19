@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.concurrent.TimeUnit;
 
-public class SeleniumBaseClass {
+public class SeleniumBaseTest {
     protected String driverPath;
     protected WebDriver driver;
     protected String testingUrl;

@@ -1,6 +1,6 @@
 package hw2.ex2;
 
-import hw2.SeleniumBaseClass;
+import hw2.SeleniumBaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class SeleniumTestsEx2 extends SeleniumBaseClass {
+public class SeleniumTestsEx2 extends SeleniumBaseTest {
 
     @Test
     public void ex2Test() {
@@ -35,10 +35,8 @@ public class SeleniumTestsEx2 extends SeleniumBaseClass {
         softAssert.assertEquals(loggedInUser.getText(), "ROMAN IOVLEV");
 
         //5.    Open Different elements page
-        WebElement serviceItem = driver.findElement(By.cssSelector("li[class = 'dropdown'] a[class='dropdown-toggle']"));
-        serviceItem.click();
-        WebElement differentElemItem = driver.findElement(By.cssSelector("a[href='different-elements.html']"));
-        differentElemItem.click();
+        driver.findElement(By.cssSelector("li[class = 'dropdown'] a[class='dropdown-toggle']")).click();
+        driver.findElement(By.cssSelector("a[href='different-elements.html']")).click();
         softAssert.assertEquals(driver.getCurrentUrl(), "https://jdi-testing.github.io/jdi-light/different-elements.html");
 
         //6.	Select checkboxes	Water, Wind
