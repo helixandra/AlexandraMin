@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="StepDesignPattern" verbose="1">
+    <test name="StepDesignPatternTests">
+        <classes>
+            <class name="hw4.ex1.HomePageTest"/>
+            <class name="hw4.ex1.HomePageTestFail"/>
+            <class name="hw4.ex2.DifferentElementsPageTest"/>
+        </classes>
+    </test>
+</suite>

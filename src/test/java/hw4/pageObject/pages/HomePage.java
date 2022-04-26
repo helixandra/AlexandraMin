@@ -1,16 +1,14 @@
-package hw3.pageObject.pages;
+package hw4.pageObject.pages;
 
-import hw3.pageObject.elements.HeaderMenu;
+import hw3.pageObject.PageObjectUtility;
+import hw3.pageObject.pages.IframePage;
+import hw4.pageObject.elements.HeaderMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.*;
 import java.util.List;
-
-import static hw3.pageObject.PageObjectUtility.getTextsOfElementsList;
-import static hw3.pageObject.PageObjectUtility.isElementsDisplayed;
 
 public class HomePage {
 
@@ -50,11 +48,14 @@ public class HomePage {
     @FindBy(css = "ul[class='sidebar-menu left'] > li > a > span")
     private List<WebElement> leftMenuItems;
 
-    public HomePage(WebDriver driver) throws UnsupportedEncodingException {
+    public HomePage(WebDriver driver) {
         this.driver = driver;
-        driver.get(homePageUrl);
         PageFactory.initElements(driver, this);
         headerMenu = new HeaderMenu(driver);
+    }
+
+    public void open() {
+        driver.get(homePageUrl);
     }
 
     public HeaderMenu getHeaderMenu() {
@@ -85,23 +86,23 @@ public class HomePage {
     }
 
     public boolean checkLeftMenuItems() {
-        return isElementsDisplayed(leftMenuItems);
+        return PageObjectUtility.isElementsDisplayed(leftMenuItems);
     }
 
     public boolean checkImages() {
-        return isElementsDisplayed(images);
+        return PageObjectUtility.isElementsDisplayed(images);
     }
 
     public boolean checkTextsUnderImages() {
-        return isElementsDisplayed(textsUnderImages);
+        return PageObjectUtility.isElementsDisplayed(textsUnderImages);
     }
 
     public List<String> getLeftMenuItemsTexts() {
-        return getTextsOfElementsList(leftMenuItems);
+        return PageObjectUtility.getTextsOfElementsList(leftMenuItems);
     }
 
     public List<String> getTextsUnderImages() {
-        return getTextsOfElementsList(textsUnderImages);
+        return PageObjectUtility.getTextsOfElementsList(textsUnderImages);
     }
 
     public boolean isThereIframe() {
@@ -112,6 +113,4 @@ public class HomePage {
         driver.switchTo().frame("frame");
         return new IframePage(driver);
     }
-
-
 }
