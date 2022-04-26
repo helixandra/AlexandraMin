@@ -1,11 +1,18 @@
 package hw5.steps;
 
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import static hw5.pageObject.PageObjectUtility.getTextsOfElementsList;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -106,5 +113,41 @@ public class AssertionStep extends AbstractStep {
     public void checkNumberOfUsernames()
     {
         assertEquals(userTablePage.getUsernames().size(),6);
+    }
+
+    @Then("6 Description texts under images should be displayed on Users Table on User Table Page")
+    public void checkNumberOfUserDescriptions()
+    {
+        assertEquals(userTablePage.getUserDescriptions().size(),6);
+    }
+
+    @Then("6 checkboxes should be displayed on Users Table on User Table Page")
+    public void checkNumberOfCheckboxes()
+    {
+        assertEquals(userTablePage.getCheckboxes().size(),6);
+    }
+
+    @Then("User table should contain following values:")
+    public void checkUserTableValues(DataTable values){
+        List<String> numbers = getTextsOfElementsList(userTablePage.getNumbers());
+        List<String> usernames = getTextsOfElementsList(userTablePage.getUsernames());
+        List<String> userDescriptions = getTextsOfElementsList(userTablePage.getUserDescriptions());
+
+        List<List<String>> valuesLists = values.asLists(String.class);
+        for (int i=0; i< numbers.size();++i){
+            assertEquals(numbers.get(i),valuesLists.get(i+1).get(0));
+            assertEquals(usernames.get(i),valuesLists.get(i+1).get(1));
+            assertEquals(userDescriptions.get(i),valuesLists.get(i+1).get(2));
+        }
+    }
+
+    @Then("droplist should contain values in column Type for user Roman")
+    public void checkDroplist(List<String> expextedOptions){
+        Select romanDroplist = new Select(userTablePage.getDropdowns().get(0));
+        List<String> actualOptions = new ArrayList<>();
+        for(WebElement option : romanDroplist.getOptions()){
+            actualOptions.add(option.getText());
+        }
+        assertEquals(actualOptions,expextedOptions.subList(1,expextedOptions.size()));
     }
 }

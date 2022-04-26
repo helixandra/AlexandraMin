@@ -14,12 +14,24 @@ public class UserTablePage {
     private WebDriver driver;
 
     @Getter
+    @FindBy(css = "td:first-child")
+    private List<WebElement> numbers;
+
+    @Getter
     @FindBy(tagName = "select")
     private List<WebElement> dropdowns;
 
     @Getter
     @FindBy(css = "table[id='user-table'] a")
     private List<WebElement> usernames;
+
+    @Getter
+    @FindBy(css = "div[class='user-descr'] span")
+    private List<WebElement> userDescriptions;
+
+    @Getter
+    @FindBy(css = "input[type='checkbox']")
+    private List<WebElement> checkboxes;
 
     public UserTablePage(WebDriver driver) {
         this.driver = driver;
