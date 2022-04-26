@@ -23,7 +23,7 @@ public class CucumberHook {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
         TestContext.getInstance().putTestObject("driver", driver);
-        //UserData user = new UserData();
+
         Properties properties = new Properties();
         String propertiesPath = "src/test/resources/config.properties";
         try (FileInputStream fis = new FileInputStream(propertiesPath)) {

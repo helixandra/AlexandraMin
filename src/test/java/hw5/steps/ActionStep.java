@@ -1,6 +1,8 @@
 package hw5.steps;
 
 import io.cucumber.java.en.When;
+import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
@@ -34,6 +36,14 @@ public class ActionStep extends AbstractStep {
     @When("I select color from dropdown menu in main form on Different Elements page")
     public void selectColor(String color) {
         differentElementsPage.selectColor(color);
+    }
+
+    @When("I select 'vip' checkbox for {string}")
+    public void selectVipCheckboxByUserName(String userName) {
+        for (WebElement checkbox : userTablePage.getCheckboxes()) {
+            if (StringUtils.containsIgnoreCase(userName, checkbox.getAttribute("id")))
+                checkbox.click();
+        }
     }
 }
 

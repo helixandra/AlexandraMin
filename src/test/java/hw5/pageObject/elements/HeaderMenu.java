@@ -19,9 +19,6 @@ public class HeaderMenu {
     @FindBy(css = "li[class='dropdown open'] > ul > li")
     private List<WebElement> serviceDropdown;
 
-    /*@FindBy(css = "a[href='different-elements.html']")
-    private WebElement differentElements;*/
-
     public HeaderMenu(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -53,9 +50,4 @@ public class HeaderMenu {
         }
         return null;
     }
-
-    /*public void goToDifferentElementsPage() {
-        clickHeaderMenuItem("SERVICE");
-        differentElements.click();
-    }*/
 }

@@ -15,7 +15,6 @@ public class GivenStep extends AbstractStep {
 
     @Given("I login as user {string}")
     public void login(String userName) {
-        //UserData user = TestContext.getInstance().getTestObject("user");
         Properties properties = TestContext.getInstance().getTestObject("properties");
         homePage.login(properties.getProperty(userName.replaceAll("\\s", "") + ".login"),
                 properties.getProperty(userName.replaceAll("\\s", "") + ".password"));

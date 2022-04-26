@@ -33,6 +33,10 @@ public class UserTablePage {
     @FindBy(css = "input[type='checkbox']")
     private List<WebElement> checkboxes;
 
+    @Getter
+    @FindBy(css = ".panel-body-list.logs > li")
+    private List<WebElement> logRows;
+
     public UserTablePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

@@ -117,7 +117,7 @@
         <profile>
             <id>AddSubstract</id>
             <properties>
-                <testSuite>${project.build.testOutputDirectory}/addSubstract.xml</testSuite>
+                <testSuite>${project.build.testOutputDirectory}/suites/addSubstract.xml</testSuite>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -126,31 +126,31 @@
         <profile>
             <id>MultiplyDivide</id>
             <properties>
-                <testSuite>${project.build.testOutputDirectory}/multiplyDivide.xml</testSuite>
+                <testSuite>${project.build.testOutputDirectory}/suites/multiplyDivide.xml</testSuite>
             </properties>
         </profile>
         <profile>
             <id>AllOperations</id>
             <properties>
-                <testSuite>${project.build.testOutputDirectory}/allOperations.xml</testSuite>
+                <testSuite>${project.build.testOutputDirectory}/suites/allOperations.xml</testSuite>
             </properties>
         </profile>
         <profile>
             <id>SeleniumBase</id>
             <properties>
-                <testSuite>${project.build.testOutputDirectory}/seleniumBase.xml</testSuite>
+                <testSuite>${project.build.testOutputDirectory}/suites/seleniumBase.xml</testSuite>
             </properties>
         </profile>
         <profile>
             <id>SeleniumPageObjects</id>
             <properties>
-                <testSuite>${project.build.testOutputDirectory}/seleniumPageObjects.xml</testSuite>
+                <testSuite>${project.build.testOutputDirectory}/suites/seleniumPageObjects.xml</testSuite>
             </properties>
         </profile>
         <profile>
             <id>StepDesignPattern</id>
             <properties>
-                <testSuite>${project.build.testOutputDirectory}/stepDesignPattern.xml</testSuite>
+                <testSuite>${project.build.testOutputDirectory}/suites/stepDesignPattern.xml</testSuite>
             </properties>
         </profile>
         <profile>

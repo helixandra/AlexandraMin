@@ -4,6 +4,8 @@
     <test name="CucumberTests">
         <classes>
             <class name="hw5.runners.DifferentElementsPageTest"/>
+            <class name="hw5.runners.UserTablePageTest"/>
+            <class name="hw5.runners.ActionsOnUserTablePageTest"/>
         </classes>
     </test>
 </suite>

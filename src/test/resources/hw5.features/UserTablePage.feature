@@ -1,7 +1,7 @@
-Feature:
+Feature: User can see different web elements on User Table page
 
   @smoke
-  Scenario: User Table Page test
+  Scenario: Сheck web elements for the correct number and presence of proper texts
     Given I open JDI GitHub site
     And I login as user "Roman Iovlev"
     When I click on "Service" button in Header menu
@@ -24,3 +24,4 @@ Feature:
       | Admin           |
       | User            |
       | Manager         |
+
