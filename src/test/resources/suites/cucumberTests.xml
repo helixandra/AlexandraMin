@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="CucumberTests" verbose="1">
+    <test name="CucumberTests">
+        <classes>
+            <class name="hw5.runners.DifferentElementsPageTest"/>
+            <class name="hw5.runners.UserTablePageTest"/>
+            <class name="hw5.runners.ActionsOnUserTablePageTest"/>
+        </classes>
+    </test>
+</suite>
